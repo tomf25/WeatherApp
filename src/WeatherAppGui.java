@@ -28,10 +28,24 @@ public class WeatherAppGui extends JFrame{
 
         // Search button
         JButton searchButton = new JButton(loadImage("src/assets/search.png"));
+
         //Change to hand when hovering over button
         searchButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
         searchButton.setBounds(375,13,47,45);
         add(searchButton);
+
+        // Weather icons
+        JLabel weatherConditionImage = new JLabel(loadImage("src/assets/cloudy.png"));
+        weatherConditionImage.setBounds(0,125,450,217);
+        add(weatherConditionImage);
+
+        //temperature reading
+        JLabel temperatureText = new JLabel("10 C");
+        temperatureText.setBounds(0,350,450,54);
+        temperatureText.setFont(new Font("Dialog", Font.BOLD, 48));
+        temperatureText.setHorizontalAlignment(SwingConstants.CENTER); //Center text
+        add(temperatureText);
     }
 
     //Create images in our gui
