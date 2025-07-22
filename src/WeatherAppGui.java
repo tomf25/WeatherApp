@@ -1,3 +1,4 @@
+import java.awt.*;
 import javax.swing.*;
 
 public class WeatherAppGui extends JFrame{
@@ -11,6 +12,14 @@ public class WeatherAppGui extends JFrame{
         setLayout(null); //manually position layout components
         setResizable(false);
         
+        addGuiComponents();
+    }
+    private void addGuiComponents(){
+        JTextField searchTextField = new JTextField();    // search field
+        searchTextField.setBounds(15, 15, 351, 45);
+
+        searchTextField.setFont(new Font("Dialog", Font.PLAIN, 24));
+        add(searchTextField);
     }
 }
 
