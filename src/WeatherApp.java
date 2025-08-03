@@ -14,15 +14,15 @@ import org.json.simple.parser.JSONParser;
 
 
 public class WeatherApp {
-    public static JSONObject gerWeatherData(String locationName){
+    public static JSONObject getWeatherData(String locationName){
 
         //Get location coords
         JSONArray locationData = getLocationData(locationName);
 
         //extract latitude and longitude data
 
-        JSONOBject location = (JSONObject) locationData.get(0);
-        double latitude = (double) location.get("latidude");
+        JSONObject location = (JSONObject) locationData.get(0);
+        double latitude = (double) location.get("latitude");
         double longitude = (double) location.get("longitude");
 
         //build api request url with location data
@@ -73,14 +73,14 @@ public class WeatherApp {
             long humidity = (long) relativeHumidity.get(index);
 
             //get windspeed
-            JSONArray windspeedDate = (JSONArray) hourly.get("wingspeed_10m");
+            JSONArray windspeedData = (JSONArray) hourly.get("wingspeed_10m");
             double windspeed = (double) windspeedData.get(index);
 
             //build the weatger json data object that we are going to access in frontend
 
             JSONObject weatherData = new JSONObject();
             weatherData.put("temperature", temperature);
-            weatherDate.put("weather_condition", weatherCondition);
+            weatherData.put("weather_condition", weatherCondition);
             weatherData.put("humidity", humidity);
             weatherData.put("windspeed", windspeed);
             return weatherData;
